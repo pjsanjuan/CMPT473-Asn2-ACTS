@@ -10,8 +10,8 @@ testNum = 0
 print '\nStarting json to csv Testing'
 print '-----------------------------------------'
 
-def callTest(inputFile, outputFile):
-	cmd = 'json2csv -k user.name,remote_ip -i ' + inputFilePath + inputFile + ' -o ' + outputFilePath + outputFile
+def callTest(csvFields, inputFile, outputFile):
+	cmd = 'json2csv -k ' + csvFields + ' -i ' + inputFilePath + inputFile + ' -o ' + outputFilePath + outputFile
 	print 'running cmd: ' + cmd
 	os.system(cmd)
 	return; 
@@ -23,18 +23,18 @@ def compareValues(correctValueFile, outputFile):
 	return; 
 
 
-def testSuite(inputFile, outputFile, correctValueFile, testName):
+def testSuite(testName, csvFields, inputFile, outputFile, correctValueFile):
 	global testNum
 	print '\n [Test: ' + str(testNum) + ' ' + testName + ']'
 	print '-----------------------------------------'
-	callTest(inputFile, outputFile)
+	callTest(csvFields, inputFile, outputFile)
 	compareValues(correctValueFile, outputFile)
 	testNum += 1
 	return;
 
 
 #do testing here
-testSuite('input.json', 'output.csv', 'outputCorrect.csv', 'default Test')
+testSuite('default Test', 'user.name,remote_ip', 'input.json', 'output.csv', 'outputCorrect.csv')
 
 
 

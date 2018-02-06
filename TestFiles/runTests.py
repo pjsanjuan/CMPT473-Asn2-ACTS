@@ -23,9 +23,9 @@ def compareValues(correctValueFile, outputFile):
 	return; 
 
 
-def testSuite(inputFile, outputFile, correctValueFile):
+def testSuite(inputFile, outputFile, correctValueFile, testName):
 	global testNum
-	print '\n [Test: ' + str(testNum) + ']'
+	print '\n [Test: ' + str(testNum) + ' ' + testName + ']'
 	print '-----------------------------------------'
 	callTest(inputFile, outputFile)
 	compareValues(correctValueFile, outputFile)
@@ -34,7 +34,7 @@ def testSuite(inputFile, outputFile, correctValueFile):
 
 
 #do testing here
-testSuite('input.json', 'output.csv', 'outputCorrect.csv')
+testSuite('input.json', 'output.csv', 'outputCorrect.csv', 'default Test')
 
 
 

@@ -4,20 +4,41 @@ import os
 #global variables
 inputFilePath = 'input/'
 outputFilePath = 'output/'
+correctValueFilePath = 'correctValues/'
+testNum = 0
 
-
-print 'Starting json to csv testing'
+print '\nStarting json to csv Testing'
 print '-----------------------------------------'
 
 def callTest(inputFile, outputFile):
 	cmd = 'json2csv -k user.name,remote_ip -i ' + inputFilePath + inputFile + ' -o ' + outputFilePath + outputFile
-	print 'running command: ' + cmd
+	print 'running cmd: ' + cmd
+	os.system(cmd)
+	return; 
+
+def compareValues(correctValueFile, outputFile):
+	cmd = 'diff ' + correctValueFilePath + correctValueFile + ' ' + outputFilePath + outputFile
+	print 'running cmd: ' + cmd
 	os.system(cmd)
 	return; 
 
 
-print '\ntest 0'
-callTest('input.json', 'output.csv')
+def testSuite(inputFile, outputFile, correctValueFile):
+	global testNum
+	print '\n [Test: ' + str(testNum) + ']'
+	print '-----------------------------------------'
+	callTest(inputFile, outputFile)
+	compareValues(correctValueFile, outputFile)
+	testNum += 1
+	return;
+
+
+#do testing here
+testSuite('input.json', 'output.csv', 'outputCorrect.csv')
+
+
+
+
 
 
 

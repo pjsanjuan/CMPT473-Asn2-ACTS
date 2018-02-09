@@ -13,6 +13,7 @@ inputFilePath = 'TestData/TestFiles/TestInput/Files/'
 outputFilePath = 'TestData/TestFiles/TestOutput/Files/'
 outputMessagePath = 'TestData/TestFiles/TestOutput/Messages/'
 expectedOutputPath = 'TestData/ExpectedOutput/'
+expectedMessagePath = 'TestData/ExpectedMessages/'
 testNum = 1
 
 print '\njson2csv program Testing'
@@ -24,10 +25,12 @@ def getfileName(fileName):
 
 
 def runJSONToCSV(csvFields, inputFile):
+	outputMessageFile = outputMessagePath + getfileName('message.txt')
 	outputFile = outputFilePath + getfileName('output.csv')
 	cmd = 'json2csv -k ' + csvFields + ' -i ' + inputFilePath + inputFile + ' -o ' + outputFile
-	print 'running cmd' + cmd + '\n'
-	os.system(cmd)
+	print 'running cmd ' + cmd + '\n'
+	createMessageOutput(cmd + '\n\n')
+	os.system(cmd  + ' >> ' + outputMessageFile)
 	return; 
 
 
@@ -35,10 +38,12 @@ def compareFilesOutput_pythonCMP():
 	outputFile = outputFilePath + getfileName('output.csv')
 	expectedOutputFile = expectedOutputPath + getfileName('ExpectedOutput.csv')
 	outputMessageFile = outputMessagePath + getfileName('message.txt')
+	expectedMessageFile = expectedMessagePath + getfileName('ExpectedMessage.txt')
 
-	cmd = 'diff -q ' + outputFile + ' ' + expectedOutputFile
-	print 'running cmd' + cmd + '\n'
-	os.system(cmd + ' > ' + outputMessageFile)
+	cmd = 'diff ' + outputFile + ' ' + expectedOutputFile
+	print 'running cmd ' + cmd + '\n'
+	addMessageOutput(cmd + '\n\n')
+	os.system(cmd + ' >> ' + outputMessageFile)
 
 	print 'test message is output to ' + outputMessageFile + '\n'
 
@@ -51,13 +56,31 @@ def compareFilesOutput_pythonCMP():
 		message = 'Files are different, TEST FAILED'
 		print message
 		addMessageOutput(message)
+
+	compareExpectedMessageOutput(outputMessageFile, expectedMessageFile)
 	return; 
+
+def createMessageOutput(cmd):
+	global testNum
+	with io.FileIO(outputMessagePath + getfileName('message.txt'), 'w') as file:
+			file.write(cmd)
 
 
 def addMessageOutput(message):
 	global testNum
 	with io.FileIO(outputMessagePath + getfileName('message.txt'), 'a') as file:
 			file.write(message)
+
+
+def compareExpectedMessageOutput(messageFile, expectedMessageFile):
+	messageIsSame = filecmp.cmp(messageFile, expectedMessageFile)
+	if messageIsSame:
+		message = 'Both messages are same'
+		print message
+	else:
+		message = 'Messages are different'
+		print message
+	return; 
 
 
 def testFrame(testName, csvFields, inputFile):

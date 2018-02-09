@@ -1,1 +1,1 @@
-Both Files are identical, TEST PASSED
+json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test1_input.json -o TestData/TestFiles/TestOutput/Files/test1_output.csvdiff TestData/TestFiles/TestOutput/Files/test1_output.csv TestData/ExpectedOutput/test1_ExpectedOutput.csvBoth Files are identical, TEST PASSED

@@ -28,6 +28,7 @@ def runJSONToCSV(csvFields, inputFile):
 	outputFile = outputFilePath + getfileName('output.csv')
 	cmd = 'json2csv -k ' + csvFields + ' -i ' + inputFilePath + inputFile + ' -o ' + outputFile
 	print 'running cmd ' + cmd + '\n'
+	createMessageOutput(cmd)
 	os.system(cmd)
 	return; 
 
@@ -40,7 +41,8 @@ def compareFilesOutput_pythonCMP():
 
 	cmd = 'diff ' + outputFile + ' ' + expectedOutputFile
 	print 'running cmd ' + cmd + '\n'
-	os.system(cmd + ' > ' + outputMessageFile)
+	addMessageOutput(cmd)
+	os.system(cmd + ' >> ' + outputMessageFile)
 
 	print 'test message is output to ' + outputMessageFile + '\n'
 
@@ -54,8 +56,13 @@ def compareFilesOutput_pythonCMP():
 		print message
 		addMessageOutput(message)
 
-	compareExpectedMessageOutput(outputMessageFile, expectedMessageFile)
+	#compareExpectedMessageOutput(outputMessageFile, expectedMessageFile)
 	return; 
+
+def createMessageOutput(cmd):
+	global testNum
+	with io.FileIO(outputMessagePath + getfileName('message.txt'), 'w') as file:
+			file.write(cmd)
 
 
 def addMessageOutput(message):

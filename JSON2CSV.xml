@@ -75,6 +75,12 @@
         <Parameter name="FILE_CONTENTS" />
       </Parameters>
     </Constraint>
+    <Constraint text="(JSON_OBJECT_LIST = &quot;MULTIPLE_NO_NEWLINE&quot;)=&gt;(VALID_JSON_OBJECTS =&quot;NOT_ALL_VALID_JSON&quot;)">
+      <Parameters>
+        <Parameter name="JSON_OBJECT_LIST" />
+        <Parameter name="VALID_JSON_OBJECTS" />
+      </Parameters>
+    </Constraint>
   </Constraints>
 </System>
 

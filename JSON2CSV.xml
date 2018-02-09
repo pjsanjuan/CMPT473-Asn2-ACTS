@@ -57,17 +57,17 @@
   <OutputParameters />
   <Relations />
   <Constraints>
-    <Constraint text="(FILE_CONTENTS = &quot;SINGLE_ROW&quot;) =&gt; (JSON_OBJECT_LIST = &quot;SINGLE&quot;)">
-      <Parameters>
-        <Parameter name="FILE_CONTENTS" />
-        <Parameter name="JSON_OBJECT_LIST" />
-      </Parameters>
-    </Constraint>
     <Constraint text="(FILE_CONTENTS = &quot;MULTIPLE_ROWS&quot;) =&gt; (JSON_OBJECT_LIST = &quot;MULTIPLE&quot; || JSON_OBJECT_LIST = &quot;MULTIPLE_NO_NEWLINE&quot;)">
       <Parameters>
         <Parameter name="FILE_CONTENTS" />
         <Parameter name="JSON_OBJECT_LIST" />
         <Parameter name="JSON_OBJECT_LIST" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(JSON_OBJECT_LIST = &quot;SINGLE&quot;)=&gt;(FILE_CONTENTS = &quot;SINGLE_ROW&quot;)">
+      <Parameters>
+        <Parameter name="JSON_OBJECT_LIST" />
+        <Parameter name="FILE_CONTENTS" />
       </Parameters>
     </Constraint>
   </Constraints>
@@ -88,23 +88,23 @@
       <Value>SINGLE_ROW</Value>
       <Value>ALL_VALID_JSON</Value>
       <Value>NOT_DEF</Value>
-      <Value>SINGLE</Value>
+      <Value>MULTIPLE_NO_NEWLINE</Value>
     </Testcase>
     <Testcase TCNo="2">
       <Value>3</Value>
-      <Value>false</Value>
+      <Value>true</Value>
       <Value>VALID</Value>
       <Value>MULTIPLE_ROWS</Value>
-      <Value>ALL_VALID_JSON</Value>
+      <Value>NOT_ALL_VALID_JSON</Value>
       <Value>VALID</Value>
-      <Value>MULTIPLE_NO_NEWLINE</Value>
+      <Value>MULTIPLE</Value>
     </Testcase>
     <Testcase TCNo="3">
       <Value>4</Value>
-      <Value>true</Value>
+      <Value>false</Value>
       <Value>INVALID</Value>
       <Value>EMPTY</Value>
-      <Value>NOT_ALL_VALID_JSON</Value>
+      <Value>ALL_VALID_JSON</Value>
       <Value>NOT_DEF</Value>
       <Value>MULTIPLE_NO_NEWLINE</Value>
     </Testcase>
@@ -124,23 +124,23 @@
       <Value>MULTIPLE_ROWS</Value>
       <Value>ALL_VALID_JSON</Value>
       <Value>INVALID</Value>
-      <Value>MULTIPLE</Value>
+      <Value>MULTIPLE_NO_NEWLINE</Value>
     </Testcase>
     <Testcase TCNo="6">
       <Value>7</Value>
       <Value>true</Value>
       <Value>NOT_DEF</Value>
       <Value>EMPTY</Value>
-      <Value>ALL_VALID_JSON</Value>
+      <Value>NOT_ALL_VALID_JSON</Value>
       <Value>VALID</Value>
-      <Value>SINGLE</Value>
+      <Value>MULTIPLE_NO_NEWLINE</Value>
     </Testcase>
     <Testcase TCNo="7">
       <Value>8</Value>
       <Value>false</Value>
       <Value>NOT_DEF</Value>
       <Value>SINGLE_ROW</Value>
-      <Value>NOT_ALL_VALID_JSON</Value>
+      <Value>ALL_VALID_JSON</Value>
       <Value>INVALID</Value>
       <Value>SINGLE</Value>
     </Testcase>
@@ -155,21 +155,21 @@
     </Testcase>
     <Testcase TCNo="9">
       <Value>10</Value>
-      <Value>false</Value>
+      <Value>true</Value>
       <Value>VALID</Value>
-      <Value>MULTIPLE_ROWS</Value>
+      <Value>SINGLE_ROW</Value>
       <Value>ALL_VALID_JSON</Value>
-      <Value>VALID</Value>
-      <Value>MULTIPLE</Value>
+      <Value>NOT_DEF</Value>
+      <Value>SINGLE</Value>
     </Testcase>
     <Testcase TCNo="10">
       <Value>11</Value>
-      <Value>true</Value>
-      <Value>NOT_DEF</Value>
-      <Value>MULTIPLE_ROWS</Value>
-      <Value>NOT_ALL_VALID_JSON</Value>
+      <Value>false</Value>
       <Value>INVALID</Value>
-      <Value>MULTIPLE_NO_NEWLINE</Value>
+      <Value>SINGLE_ROW</Value>
+      <Value>ALL_VALID_JSON</Value>
+      <Value>VALID</Value>
+      <Value>MULTIPLE</Value>
     </Testcase>
   </Testset>
   <Header>
@@ -182,10 +182,10 @@
     <Value>JSON_OBJECT_LIST</Value>
   </Header>
   <Stat-Data>
-    <ExecutionTime>0.051</ExecutionTime>
+    <ExecutionTime>0.008</ExecutionTime>
     <MaxDomainSize>3</MaxDomainSize>
     <MinDomainSize>2</MinDomainSize>
-    <TotalNoOfCombination>103</TotalNoOfCombination>
+    <TotalNoOfCombination>104</TotalNoOfCombination>
     <TotalNoOfTests>11</TotalNoOfTests>
     <Algorithm>IPOG</Algorithm>
   </Stat-Data>

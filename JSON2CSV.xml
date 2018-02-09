@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <System name="JSON2CSV">
   <Parameters>
-    <Parameter id="0" name="PRINT_HEADER_FLAG_SET" type="2">
+    <Parameter id="0" name="VALID_JSON_PATH" type="2">
       <values>
         <value>true</value>
         <value>false</value>
@@ -9,46 +9,27 @@
       <basechoices />
       <invalidValues />
     </Parameter>
-    <Parameter id="2" name="FILE_PATH_TO_JSON_FILE" type="1">
-      <values>
-        <value>VALID</value>
-        <value>INVALID</value>
-        <value>NOT_DEF</value>
-      </values>
-      <basechoices />
-      <invalidValues />
-    </Parameter>
-    <Parameter id="3" name="FILE_CONTENTS" type="1">
+    <Parameter id="2" name="FILE_CONTENTS" type="1">
       <values>
         <value>EMPTY</value>
-        <value>SINGLE_ROW</value>
         <value>MULTIPLE_ROWS</value>
+        <value>SINGLE_ROW</value>
       </values>
       <basechoices />
       <invalidValues />
     </Parameter>
-    <Parameter id="4" name="VALID_JSON_OBJECTS" type="1">
+    <Parameter id="3" name="ALL_VALID_JSON_OBJECTS" type="2">
       <values>
-        <value>ALL_VALID_JSON</value>
-        <value>NOT_ALL_VALID_JSON</value>
+        <value>true</value>
+        <value>false</value>
       </values>
       <basechoices />
       <invalidValues />
     </Parameter>
-    <Parameter id="6" name="FILE_PATH_TO_OUTPUT" type="1">
+    <Parameter id="4" name="EACH_ROW_HAS_ONE_JSON_OBJECT" type="2">
       <values>
-        <value>VALID</value>
-        <value>INVALID</value>
-        <value>NOT_DEF</value>
-      </values>
-      <basechoices />
-      <invalidValues />
-    </Parameter>
-    <Parameter id="8" name="JSON_OBJECT_LIST" type="1">
-      <values>
-        <value>SINGLE</value>
-        <value>MULTIPLE</value>
-        <value>MULTIPLE_NO_NEWLINE</value>
+        <value>true</value>
+        <value>false</value>
       </values>
       <basechoices />
       <invalidValues />
@@ -57,28 +38,29 @@
   <OutputParameters />
   <Relations />
   <Constraints>
-    <Constraint text="(FILE_CONTENTS = &quot;MULTIPLE_ROWS&quot;) =&gt; (JSON_OBJECT_LIST = &quot;MULTIPLE&quot; || JSON_OBJECT_LIST = &quot;MULTIPLE_NO_NEWLINE&quot;)">
+    <Constraint text="(VALID_JSON_PATH = true) =&gt; (FILE_CONTENTS = &quot;EMPTY&quot; || FILE_CONTENTS = &quot;MULTIPLE_ROWS&quot; || FILE_CONTENTS = &quot;SINGLE_ROW&quot;)">
       <Parameters>
+        <Parameter name="VALID_JSON_PATH" />
         <Parameter name="FILE_CONTENTS" />
-        <Parameter name="JSON_OBJECT_LIST" />
-      </Parameters>
-    </Constraint>
-    <Constraint text="(JSON_OBJECT_LIST = &quot;SINGLE&quot;)=&gt;(FILE_CONTENTS = &quot;SINGLE_ROW&quot;)">
-      <Parameters>
-        <Parameter name="JSON_OBJECT_LIST" />
+        <Parameter name="FILE_CONTENTS" />
         <Parameter name="FILE_CONTENTS" />
       </Parameters>
     </Constraint>
-    <Constraint text="(JSON_OBJECT_LIST = &quot;MULTIPLE&quot;) =&gt; (FILE_CONTENTS = &quot;MULTIPLE_ROWS&quot;)">
+    <Constraint text="(FILE_CONTENTS != &quot;EMPTY&quot; &amp;&amp; VALID_JSON_PATH = true) =&gt; (ALL_VALID_JSON_OBJECTS = true || ALL_VALID_JSON_OBJECTS = false)">
       <Parameters>
-        <Parameter name="JSON_OBJECT_LIST" />
         <Parameter name="FILE_CONTENTS" />
+        <Parameter name="VALID_JSON_PATH" />
+        <Parameter name="ALL_VALID_JSON_OBJECTS" />
+        <Parameter name="ALL_VALID_JSON_OBJECTS" />
       </Parameters>
     </Constraint>
-    <Constraint text="(JSON_OBJECT_LIST = &quot;MULTIPLE_NO_NEWLINE&quot;)=&gt;(VALID_JSON_OBJECTS =&quot;NOT_ALL_VALID_JSON&quot;)">
+    <Constraint text="(FILE_CONTENTS != &quot;EMPTY&quot; &amp;&amp; ALL_VALID_JSON_OBJECTS = true &amp;&amp; VALID_JSON_PATH = true) =&gt; (EACH_ROW_HAS_ONE_JSON_OBJECT = true || EACH_ROW_HAS_ONE_JSON_OBJECT = false)">
       <Parameters>
-        <Parameter name="JSON_OBJECT_LIST" />
-        <Parameter name="VALID_JSON_OBJECTS" />
+        <Parameter name="FILE_CONTENTS" />
+        <Parameter name="ALL_VALID_JSON_OBJECTS" />
+        <Parameter name="VALID_JSON_PATH" />
+        <Parameter name="EACH_ROW_HAS_ONE_JSON_OBJECT" />
+        <Parameter name="EACH_ROW_HAS_ONE_JSON_OBJECT" />
       </Parameters>
     </Constraint>
   </Constraints>

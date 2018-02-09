@@ -25,11 +25,12 @@ def getfileName(fileName):
 
 
 def runJSONToCSV(csvFields, inputFile):
+	outputMessageFile = outputMessagePath + getfileName('message.txt')
 	outputFile = outputFilePath + getfileName('output.csv')
 	cmd = 'json2csv -k ' + csvFields + ' -i ' + inputFilePath + inputFile + ' -o ' + outputFile
 	print 'running cmd ' + cmd + '\n'
-	createMessageOutput(cmd)
-	os.system(cmd)
+	createMessageOutput(cmd + '\n\n')
+	os.system(cmd  + ' >> ' + outputMessageFile)
 	return; 
 
 
@@ -41,22 +42,22 @@ def compareFilesOutput_pythonCMP():
 
 	cmd = 'diff ' + outputFile + ' ' + expectedOutputFile
 	print 'running cmd ' + cmd + '\n'
-	addMessageOutput(cmd)
+	addMessageOutput(cmd + '\n\n')
 	os.system(cmd + ' >> ' + outputMessageFile)
 
 	print 'test message is output to ' + outputMessageFile + '\n'
 
 	fileIsSame = filecmp.cmp(outputFile, expectedOutputFile)
 	if fileIsSame:
-		message = 'Both Files are identical, TEST PASSED\n'
+		message = 'Both Files are identical, TEST PASSED'
 		print message
 		addMessageOutput(message)
 	else:
-		message = 'Files are different, TEST FAILED\n'
+		message = 'Files are different, TEST FAILED'
 		print message
 		addMessageOutput(message)
 
-	#compareExpectedMessageOutput(outputMessageFile, expectedMessageFile)
+	compareExpectedMessageOutput(outputMessageFile, expectedMessageFile)
 	return; 
 
 def createMessageOutput(cmd):

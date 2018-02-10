@@ -97,36 +97,36 @@ def testFrame(testName, csvFields, inputFile):
 #testFrame('Test name', 'field1,field2', 'input.json')
 
 #test 1  
-#VALID_JSON_PATH = true,  E
-testFrame('Testing something', 'user.name,remote_ip', 'test1_input.json')
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
+testFrame('Testing Empty File, Valid Json file Path', 'nonExistentFile', 'test1_input.json')
 
 #test 2
-#
-testFrame('Testing something', 'user.name,remote_ip', 'test2_input.json')
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
+testFrame('Testing Empty File, Invalid Json file Path', 'user.name,remote_ip', 'nonExistentFile.json')
 
-#test 3
-#
+# #test 3
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
 testFrame('Testing something', 'user.name,remote_ip', 'test3_input.json')
 
-#test 4
-#
-testFrame('Testing something', 'user.name,remote_ip', 'test4_input.json')
+# #test 4
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
+# testFrame('Testing something', 'user.name,remote_ip', 'test4_input.json')
 
-#test 5
-#
-testFrame('Testing something', 'user.name,remote_ip', 'test5_input.json')
+# #test 5
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
+# testFrame('Testing something', 'user.name,remote_ip', 'test5_input.json')
 
-#test 6
-#.....
-testFrame('Testing something', 'user.name,remote_ip', 'test6_input.json')
+# #test 6
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
+# testFrame('Testing something', 'user.name,remote_ip', 'test6_input.json')
 
-#test 7
-#
-testFrame('Testing something', 'user.name,remote_ip', 'test7_input.json')
+# #test 7
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
+# testFrame('Testing something', 'user.name,remote_ip', 'test7_input.json')
 
-#test 7
-#
-testFrame('Testing something', 'user.name,remote_ip', 'test8_input.json')
+# #test 8
+#VALID_JSON_PATH = , FILE_CONTENTS = , EACH_ROW_HAS_ONE_JSON_OBJECT = , FIELDS_EXIST_IN_JSON_OBJ = 
+# testFrame('Testing something', 'user.name,remote_ip', 'test8_input.json')
 
 
 

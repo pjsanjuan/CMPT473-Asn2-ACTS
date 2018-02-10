@@ -1,6 +1,6 @@
-json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test1_input.json -o TestData/TestFiles/TestOutput/Files/test1_output.csv
+json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test3_input.json -o TestData/TestFiles/TestOutput/Files/test3_output.csv
 
-diff TestData/TestFiles/TestOutput/Files/test1_output.csv TestData/ExpectedOutput/test1_ExpectedOutput.csv
+diff TestData/TestFiles/TestOutput/Files/test3_output.csv TestData/ExpectedOutput/test3_ExpectedOutput.csv
 
 3c3
 < unknown,76.216.210.0

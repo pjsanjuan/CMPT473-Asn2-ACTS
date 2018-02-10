@@ -97,12 +97,38 @@ def testFrame(testName, csvFields, inputFile):
 #testFrame('Test name', 'field1,field2', 'input.json')
 
 #test 1  
-#VALID_JSON_PATH = true,  FILE_CONTENTS = EMPTY, ALL_VALID_JSON_OBJECTS = FALSE, EACH_ROW_HAS_ONE_JSON_OBJECT = false
-testFrame('Empty File', 'user.name,remote_ip', 'test1_input.json')
+#VALID_JSON_PATH = true,  E
+testFrame('Testing something', 'user.name,remote_ip', 'test1_input.json')
 
 #test 2
-#TODO
+#
+testFrame('Testing something', 'user.name,remote_ip', 'test2_input.json')
+
+#test 3
+#
+testFrame('Testing something', 'user.name,remote_ip', 'test3_input.json')
+
+#test 4
+#
+testFrame('Testing something', 'user.name,remote_ip', 'test4_input.json')
+
+#test 5
+#
+testFrame('Testing something', 'user.name,remote_ip', 'test5_input.json')
+
+#test 6
 #.....
+testFrame('Testing something', 'user.name,remote_ip', 'test6_input.json')
+
+#test 7
+#
+testFrame('Testing something', 'user.name,remote_ip', 'test7_input.json')
+
+#test 7
+#
+testFrame('Testing something', 'user.name,remote_ip', 'test8_input.json')
+
+
 
 
 

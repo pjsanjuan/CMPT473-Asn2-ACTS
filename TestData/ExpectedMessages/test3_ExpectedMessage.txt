@@ -2,4 +2,4 @@ json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test3_inpu
 
 diff TestData/TestFiles/TestOutput/Files/test3_output.csv TestData/ExpectedOutput/test3_ExpectedOutput.csv
 
-Both Files are different
+Both Files are identical

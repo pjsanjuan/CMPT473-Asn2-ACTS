@@ -2,8 +2,4 @@ json2csv -k nonExistentField -i TestData/TestFiles/TestInput/Files/test1_input.j
 
 diff TestData/TestFiles/TestOutput/Files/test1_output.csv TestData/ExpectedOutput/test1_ExpectedOutput.csv
 
-0a1,3
-> jehiah,127.0.0.1
-> jeroenjanssens,192.168.0.1
-> unknown,76.216.210.0 s
-Files are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILED
+Both Files are identical

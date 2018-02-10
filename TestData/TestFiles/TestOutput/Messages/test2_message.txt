@@ -1,9 +1,3 @@
 json2csv -k nonExistentField -i TestData/TestFiles/TestInput/Files/invalidPath/nonExistentFile.json -o TestData/TestFiles/TestOutput/Files/test2_output.csv
 
-diff TestData/TestFiles/TestOutput/Files/test2_output.csv TestData/ExpectedOutput/test2_ExpectedOutput.csv
-
-3c3
-< unknown,76.216.210.0
----
-> unknown,76.216.210.0 s
-Files are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILED
+Path to input file is invalid

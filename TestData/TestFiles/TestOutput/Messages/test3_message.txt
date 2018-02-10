@@ -2,8 +2,4 @@ json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test3_inpu
 
 diff TestData/TestFiles/TestOutput/Files/test3_output.csv TestData/ExpectedOutput/test3_ExpectedOutput.csv
 
-3c3
-< unknown,76.216.210.0
----
-> unknown,76.216.210.0 s
-Files are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILEDFiles are different, TEST FAILED
+Both Files are identical

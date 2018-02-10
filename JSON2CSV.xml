@@ -46,24 +46,22 @@
   <OutputParameters />
   <Relations />
   <Constraints>
-    <Constraint text="(VALID_JSON_PATH = true) =&gt; (FILE_CONTENTS = &quot;EMPTY&quot; || FILE_CONTENTS = &quot;MULTIPLE_ROWS&quot; || FILE_CONTENTS = &quot;SINGLE_ROW&quot;)">
+    <Constraint text="(VALID_JSON_PATH = true) =&gt; (FILE_CONTENTS = &quot;EMPTY&quot;)">
       <Parameters>
         <Parameter name="VALID_JSON_PATH" />
         <Parameter name="FILE_CONTENTS" />
       </Parameters>
     </Constraint>
-    <Constraint text="(FILE_CONTENTS != &quot;EMPTY&quot; &amp;&amp; VALID_JSON_PATH = true) =&gt; (ALL_VALID_JSON_OBJECTS = true || ALL_VALID_JSON_OBJECTS = false)">
+    <Constraint text="(FILE_CONTENTS = &quot;EMPTY&quot;) =&gt; (ALL_VALID_JSON_OBJECTS = true &amp;&amp; EACH_ROW_HAS_ONE_JSON_OBJECT = false)">
       <Parameters>
         <Parameter name="FILE_CONTENTS" />
-        <Parameter name="VALID_JSON_PATH" />
         <Parameter name="ALL_VALID_JSON_OBJECTS" />
+        <Parameter name="EACH_ROW_HAS_ONE_JSON_OBJECT" />
       </Parameters>
     </Constraint>
-    <Constraint text="(FILE_CONTENTS != &quot;EMPTY&quot; &amp;&amp; ALL_VALID_JSON_OBJECTS = true &amp;&amp; VALID_JSON_PATH = true) =&gt; (EACH_ROW_HAS_ONE_JSON_OBJECT = true || EACH_ROW_HAS_ONE_JSON_OBJECT = false)">
+    <Constraint text="(ALL_VALID_JSON_OBJECTS = false) =&gt;(EACH_ROW_HAS_ONE_JSON_OBJECT = false) ">
       <Parameters>
-        <Parameter name="FILE_CONTENTS" />
         <Parameter name="ALL_VALID_JSON_OBJECTS" />
-        <Parameter name="VALID_JSON_PATH" />
         <Parameter name="EACH_ROW_HAS_ONE_JSON_OBJECT" />
       </Parameters>
     </Constraint>
@@ -73,7 +71,7 @@
       <Value>1</Value>
       <Value>true</Value>
       <Value>EMPTY</Value>
-      <Value>false</Value>
+      <Value>true</Value>
       <Value>false</Value>
       <Value>false</Value>
     </Testcase>
@@ -82,38 +80,46 @@
       <Value>false</Value>
       <Value>EMPTY</Value>
       <Value>true</Value>
-      <Value>true</Value>
+      <Value>false</Value>
       <Value>true</Value>
     </Testcase>
     <Testcase TCNo="2">
       <Value>3</Value>
-      <Value>true</Value>
-      <Value>MULTIPLE_ROWS</Value>
-      <Value>true</Value>
       <Value>false</Value>
-      <Value>true</Value>
+      <Value>MULTIPLE_ROWS</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
     </Testcase>
     <Testcase TCNo="3">
       <Value>4</Value>
       <Value>false</Value>
-      <Value>MULTIPLE_ROWS</Value>
+      <Value>SINGLE_ROW</Value>
+      <Value>false</Value>
       <Value>false</Value>
       <Value>true</Value>
-      <Value>false</Value>
     </Testcase>
     <Testcase TCNo="4">
       <Value>5</Value>
-      <Value>true</Value>
-      <Value>SINGLE_ROW</Value>
-      <Value>true</Value>
-      <Value>true</Value>
       <Value>false</Value>
+      <Value>MULTIPLE_ROWS</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
     </Testcase>
     <Testcase TCNo="5">
       <Value>6</Value>
       <Value>false</Value>
       <Value>SINGLE_ROW</Value>
+      <Value>true</Value>
+      <Value>true</Value>
       <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>true</Value>
+      <Value>EMPTY</Value>
+      <Value>true</Value>
       <Value>false</Value>
       <Value>true</Value>
     </Testcase>
@@ -127,11 +133,11 @@
     <Value>FIELDS_EXISTS_IN_JSON_OBJ</Value>
   </Header>
   <Stat-Data>
-    <ExecutionTime>0.217</ExecutionTime>
+    <ExecutionTime>0.147</ExecutionTime>
     <MaxDomainSize>3</MaxDomainSize>
     <MinDomainSize>2</MinDomainSize>
-    <TotalNoOfCombination>48</TotalNoOfCombination>
-    <TotalNoOfTests>6</TotalNoOfTests>
+    <TotalNoOfCombination>41</TotalNoOfCombination>
+    <TotalNoOfTests>7</TotalNoOfTests>
     <Algorithm>IPOG</Algorithm>
   </Stat-Data>
 </System>

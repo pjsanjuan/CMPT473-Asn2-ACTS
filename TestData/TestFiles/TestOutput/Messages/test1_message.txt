@@ -2,4 +2,4 @@ json2csv -k nonExistentField -i TestData/TestFiles/TestInput/Files/test1_input.j
 
 diff TestData/TestFiles/TestOutput/Files/test1_output.csv TestData/ExpectedOutput/test1_ExpectedOutput.csv
 
-Both Files are identical
+Both Expected and Output Files are identical

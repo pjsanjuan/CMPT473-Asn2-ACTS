@@ -1,0 +1,129 @@
+
+json2csv program ACTS Testing
+==============================================================
+
+
+[Test: 1 - Testing Valid Input Path, Empty File]
+==============================================================
+json2csv -k nonExistentField -i TestData/TestFiles/TestInput/Files/test1_input.json -o TestData/TestFiles/TestOutput/Files/test1_output.csv
+
+diff TestData/TestFiles/TestOutput/Files/test1_output.csv TestData/ExpectedOutput/test1_ExpectedOutput.csv
+
+Message: Both Expected and Output Files are identical
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test1_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test1_message.txt TestData/ExpectedMessages/test1_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 2 - Testing Invalid Input Path, Empty File]
+==============================================================
+json2csv -k nonExistentField -i TestData/TestFiles/TestInput/Files/test2_invalidPath/nonExistentFile.json -o TestData/TestFiles/TestOutput/Files/test2_output.csv
+
+Message: Path to input file is invalid
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test2_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test2_message.txt TestData/ExpectedMessages/test2_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 3 - Testing Valid Input Path, Multiple Rows File, Valid Json Obj, Each row has one jason Obj, Fields exist in Json Obj, Valid Output Path]
+==============================================================
+json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test3_input.json -o TestData/TestFiles/TestOutput/Files/test3_output.csv
+
+diff TestData/TestFiles/TestOutput/Files/test3_output.csv TestData/ExpectedOutput/test3_ExpectedOutput.csv
+
+Message: Both Expected and Output Files are identical
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test3_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test3_message.txt TestData/ExpectedMessages/test3_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 4 - Testing Valid Input Path, Single Row File, Valid Json Obj, Each row does not have one jason Obj, Fields exist in Json Obj, Invalid Output Path]
+==============================================================
+json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test4_input.json -o TestData/TestFiles/TestOutput/Files/test4_invalidPath/nonExistentFile.csv
+
+Message: Path to output file is invalid
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test4_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test4_message.txt TestData/ExpectedMessages/test4_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 5 - Testing Valid Input Path, Multiple Rows File, Invalid Json Obj, Each row has one jason Obj, Fields do not exist in Json Obj, Invalid Output Path]
+==============================================================
+json2csv -k nonExistentField,nonExistentField2 -i TestData/TestFiles/TestInput/Files/test5_input.json -o TestData/TestFiles/TestOutput/Files/test5_invalidPath/nonExistentFile.csv
+
+Message: Path to output file is invalid
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test5_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test5_message.txt TestData/ExpectedMessages/test5_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 6 - Testing Valid Input Path, Single Row File, Invalid Json Obj, Each row has one jason Obj, Fields exist in Json Obj, Valid Output Path]
+==============================================================
+json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test6_input.json -o TestData/TestFiles/TestOutput/Files/test6_output.csv
+
+2018/02/09 22:05:35 ERROR Decoding JSON at line 1: invalid character '"' after object key:value pair
+{"user": {"name":"jehiah" "password": "root"}, "remote_ip": "127.0.0.1", "dt" : "[20/Aug/2010:01:12:44 -0400]"}
+diff TestData/TestFiles/TestOutput/Files/test6_output.csv TestData/ExpectedOutput/test6_ExpectedOutput.csv
+
+Message: Both Expected and Output Files are identical
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test6_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test6_message.txt TestData/ExpectedMessages/test6_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 7 - Testing Valid Input Path, Multiple Rows File, Invalid Json Obj, Each row does not have one jason Obj, Fields exist in Json Obj, Valid Output Path]
+==============================================================
+json2csv -k user.name -i TestData/TestFiles/TestInput/Files/test7_test7_input.json -o TestData/TestFiles/TestOutput/Files/test7_invalidPath/nonExistentFile.csv
+
+Message: Path to input file is invalid
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test7_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test7_message.txt TestData/ExpectedMessages/test7_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 8 - Testing Valid Input Path, Single Row File, Invalid Json Obj, Each row does not have one jason Obj, Fields do not exist in Json Obj, Valid Output Path]
+==============================================================
+json2csv -k nonExistentField -i TestData/TestFiles/TestInput/Files/test8_test8_input.json -o TestData/TestFiles/TestOutput/Files/test8_output.csv
+
+Message: Path to input file is invalid
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test8_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test8_message.txt TestData/ExpectedMessages/test8_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+
+
+[Test: 9 - Testing Valid Input Path, Empty Field, Invalid Json Obj, Each row does not have one jason Obj, Fields do not exist in Json Obj, Invalid Output Path]
+==============================================================
+json2csv -k nonExistentField,nonExistentField2 -i TestData/TestFiles/TestInput/Files/test9_test9_input.json -o TestData/TestFiles/TestOutput/Files/test9_output.csv
+
+Message: Path to input file is invalid
+
+Message is saved to: TestData/TestFiles/TestOutput/Messages/test9_message.txt
+
+diff TestData/TestFiles/TestOutput/Messages/test9_message.txt TestData/ExpectedMessages/test9_ExpectedMessage.txt
+
+Both Expected and Output Messages are identical, TEST PASSED!
+

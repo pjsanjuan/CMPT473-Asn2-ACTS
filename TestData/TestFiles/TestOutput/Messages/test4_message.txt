@@ -1,2 +1,3 @@
-Path to output file is invalid, TEST FAILED
+json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test4_input.json -o TestData/TestFiles/TestOutput/Files/test4_invalidPath/nonExistentFile.csv
 
+Path to output file is invalid

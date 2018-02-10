@@ -1,5 +1,3 @@
-json2csv -k user.name,remote_ip -i TestData/TestFiles/TestInput/Files/test1_input.json -o TestData/TestFiles/TestOutput/Files/test1_output.csv
+json2csv -k nonExistentField,nonExistentField2 -i TestData/TestFiles/TestInput/Files/test9_test9_input.json -o TestData/TestFiles/TestOutput/Files/test9_output.csv
 
-diff TestData/TestFiles/TestOutput/Files/test1_output.csv TestData/ExpectedOutput/test1_ExpectedOutput.csv
-
-Both Files are identical, TEST PASSED
+Path to input file is invalid

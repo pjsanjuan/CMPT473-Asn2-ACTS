@@ -96,8 +96,9 @@ def testFrame(testName, csvFields, inputFile):
 #do testing here
 #testFrame('Test name', 'field1,field2', 'input.json')
 
-#test 1
-testFrame('Testing something', 'user.name,remote_ip', 'test1_input.json')
+#test 1  
+#VALID_JSON_PATH = true,  FILE_CONTENTS = EMPTY, ALL_VALID_JSON_OBJECTS = FALSE, EACH_ROW_HAS_ONE_JSON_OBJECT = false
+testFrame('Empty File', 'user.name,remote_ip', 'test1_input.json')
 
 #test 2
 #TODO

@@ -42,6 +42,14 @@
       <basechoices />
       <invalidValues />
     </Parameter>
+    <Parameter id="7" name="VALID_OUTPUT_PATH" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
   </Parameters>
   <OutputParameters />
   <Relations />
@@ -64,87 +72,5 @@
       </Parameters>
     </Constraint>
   </Constraints>
-  <Testset doi="2">
-    <Testcase TCNo="0">
-      <Value>1</Value>
-      <Value>true</Value>
-      <Value>EMPTY</Value>
-      <Value>false</Value>
-      <Value>false</Value>
-      <Value>false</Value>
-    </Testcase>
-    <Testcase TCNo="1">
-      <Value>2</Value>
-      <Value>false</Value>
-      <Value>EMPTY</Value>
-      <Value>false</Value>
-      <Value>false</Value>
-      <Value>false</Value>
-    </Testcase>
-    <Testcase TCNo="2">
-      <Value>3</Value>
-      <Value>true</Value>
-      <Value>MULTIPLE_ROWS</Value>
-      <Value>true</Value>
-      <Value>true</Value>
-      <Value>true</Value>
-    </Testcase>
-    <Testcase TCNo="3">
-      <Value>4</Value>
-      <Value>true</Value>
-      <Value>SINGLE_ROW</Value>
-      <Value>true</Value>
-      <Value>false</Value>
-      <Value>true</Value>
-    </Testcase>
-    <Testcase TCNo="4">
-      <Value>5</Value>
-      <Value>true</Value>
-      <Value>MULTIPLE_ROWS</Value>
-      <Value>false</Value>
-      <Value>true</Value>
-      <Value>false</Value>
-    </Testcase>
-    <Testcase TCNo="5">
-      <Value>6</Value>
-      <Value>true</Value>
-      <Value>SINGLE_ROW</Value>
-      <Value>false</Value>
-      <Value>true</Value>
-      <Value>true</Value>
-    </Testcase>
-    <Testcase TCNo="6">
-      <Value>7</Value>
-      <Value>true</Value>
-      <Value>MULTIPLE_ROWS</Value>
-      <Value>true</Value>
-      <Value>false</Value>
-      <Value>false</Value>
-    </Testcase>
-    <Testcase TCNo="7">
-      <Value>8</Value>
-      <Value>true</Value>
-      <Value>SINGLE_ROW</Value>
-      <Value>false</Value>
-      <Value>true</Value>
-      <Value>false</Value>
-    </Testcase>
-  </Testset>
-  <Header>
-    <Value />
-    <Value>VALID_JSON_PATH</Value>
-    <Value>FILE_CONTENTS</Value>
-    <Value>ALL_VALID_JSON_OBJECTS</Value>
-    <Value>EACH_ROW_HAS_ONE_JSON_OBJECT</Value>
-    <Value>FIELDS_EXISTS_IN_JSON_OBJ</Value>
-  </Header>
-  <Stat-Data>
-    <ExecutionTime>0.013</ExecutionTime>
-    <MaxDomainSize>3</MaxDomainSize>
-    <MinDomainSize>2</MinDomainSize>
-    <TotalNoOfCombination>40</TotalNoOfCombination>
-    <TotalNoOfTests>8</TotalNoOfTests>
-    <Algorithm>IPOG</Algorithm>
-  </Stat-Data>
 </System>
 
